@@ -1,0 +1,64 @@
+﻿<Window x:Class="PicSiteGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="图片网站生成器" Height="322" Width="511">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="8,2,8,2"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="Slider">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="网站名字： " Width="100"/>
+                <TextBox Name="title_tbx" Text="图片网站"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="选择图片文件夹" Click="selectpic_click" />
+                <TextBlock Name="img_tb"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="选择网站位置" Click="selectsite_click"/>
+                <TextBlock Name="site_tb"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="文件地址类型： " Width="100"/>
+                <RadioButton Name="g1_r1" GroupName="g1" IsChecked="True" Content="相对路径"/>
+                <RadioButton Name="g1_r2" GroupName="g1" Content="绝对路径"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="每页文件数： " Width="100"/>
+                <Slider Minimum="5" Maximum="100" Width="100" Interval="5" Name="sd1"/>
+                <TextBlock Text="{Binding Path=Value, StringFormat=000, ElementName=sd1}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="文件夹深度： " Width="100"/>
+                <Slider Minimum="1" Maximum="10" Width="100" Value="2" Name="sd2"/>
+                <TextBlock Text="{Binding Path=Value, StringFormat=0, ElementName=sd2}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="info_tb" Foreground="Red"/>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="生成" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="generate_click"/>
+    </Grid>
+</Window>
