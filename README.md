@@ -1,4 +1,4 @@
-# Picture-To-Html
+# Indexing Media to Html
 After several years of using personal PC, user shall has collected lots of pictures(videos) on hard disks.
 For these old historical data, search may not be a good option, since user might have already forgot the file/folder name.
 
